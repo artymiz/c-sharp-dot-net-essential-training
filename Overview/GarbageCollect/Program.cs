@@ -15,7 +15,9 @@ Console.ReadLine();
 
 // Call the function that allocates a large memory chunk
 DoSomeBigOperation();
-// TODO: After the function completes, force a Garbage Collection 
+// TODO: After the function completes, force a Garbage Collection
+GC.Collect();   // force garbage collection
+
 
 // Retrieve and print the updated total memory amount
 Console.WriteLine($"Allocated memory is: {GC.GetTotalMemory(false)}");
