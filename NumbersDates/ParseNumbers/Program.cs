@@ -10,8 +10,25 @@ bool result;
 // TODO: The Parse method attempts to parse a string to a number and
 // throws an exception if the parse is unsuccessful
 foreach (string str in NumStrs) {
-
+    try {
+        testfloat = float.Parse(str);
+        Console.WriteLine($"Parsed {str} to float {testfloat}");
+        testint = int.Parse(str);
+        Console.WriteLine($"Parsed {str} to int {testint}");
+    } catch (FormatException) {
+        Console.WriteLine($"Unable to parse '{str}'");
+    }
 }
 
 // TODO: The TryParse method returns 'true' if the parse is successful
+result = int.TryParse(NumStrs[0], out testint);
+Console.WriteLine($"{result} --- '{NumStrs[0]}' : {testint}");
 
+result = float.TryParse(NumStrs[1], out testfloat);
+Console.WriteLine($"{result} --- '{NumStrs[1]}' : {testfloat}");
+
+result = int.TryParse(NumStrs[2], out testint);
+Console.WriteLine($"{result} --- '{NumStrs[2]}' : {testint}");
+
+result = float.TryParse(NumStrs[3], out testfloat);
+Console.WriteLine($"{result} --- '{NumStrs[3]}' : {testfloat}");
