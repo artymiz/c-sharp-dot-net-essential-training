@@ -15,7 +15,7 @@ Console.WriteLine(result);
 // TODO: Replacement text can be generated on the fly using MatchEvaluator
 // This is a delegate that computes the new value of the replacement
 string MakeUpper(Match m) {
-    string s= m.ToString();
+    string s = m.ToString();
     if (m.Index == 0)  {
         return s;
     }
