@@ -1,6 +1,5 @@
 ﻿using System.Text.RegularExpressions;
 
-string? input;
 const int TIMEOUT = 1000;
 
 static void printReversedDateStr(string dateStr) {
@@ -15,17 +14,20 @@ static void printReversedDateStr(string dateStr) {
     };
 }
 
-do {
-    // Prompt user for input
+// Prompt user for input
+static string getUserInput() {
     System.Console.WriteLine("Date to Convert? (Use mm/dd/yyyy, or 'exit' to quit)");
-    input = System.Console.ReadLine();
+    string? input = System.Console.ReadLine();
     input = string.IsNullOrEmpty(input) ? "" : input.Trim().ToLower();
 
+    return input;
+}
+
+for (string input = getUserInput(); !input.Equals("exit"); input = getUserInput()) {
     if (DateTime.TryParse(input, out DateTime date)) {
         printReversedDateStr(input);
     } else {
         System.Console.WriteLine("That's not a valid date, try again");
     }
-
-} while (!input.Equals("exit"));
+}
 
